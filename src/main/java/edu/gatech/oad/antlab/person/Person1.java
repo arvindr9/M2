@@ -5,7 +5,7 @@ package edu.gatech.oad.antlab.person;
  *  returns their name and a
  *  modified string 
  *  
- *  @author Bob
+ *  @author Andrew Kristanto
  *  @version 1.1
  */
 public class Person1 {
@@ -21,7 +21,7 @@ public class Person1 {
   }
   	/**
 	 * This method should take the string
-	 * input and return its characters rotated
+	 * input and return its characters	 rotated
 	 * 2 positions.
 	 * given "gtg123b" it should return
 	 * "g123bgt".
@@ -30,8 +30,8 @@ public class Person1 {
 	 * @return the modified string
 	 */
 	private String calc(String input) {
-	  //Person 1 put your implementation here
-	  return null;
+	  	//Person 1 put your implementation here
+	  	return (input.substring(input.length()-2) + input.substring(0,input.length()-2));
 	}
 	
 	/**
