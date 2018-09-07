@@ -1,0 +1,39 @@
+apply plugin: 'java'
+
+task compileOne (type: JavaCompile) {
+    source = sourceSets.main.java.srcDirs
+    include 'some/pkg/ClassTwo.java'
+    classpath = sourceSets.main.compileClasspath
+    destinationDir = sourceSets.main.output.classesDir
+}
+
+compileOne.options.compilerArgs = ["-sourcepath", "$projectDir/src/main/java"]
+
+
+
+
+
+task fatJar(type: Jar) {
+	manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File Example',  
+        	'Implementation-Version': version,
+        	'Main-Class': 'com.mkyong.DateUtils'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+
+
+
+
+task myJavadocs(type: Javadoc) {    
+    source = sourceSets.main.allJava
+    options.memberLevel = JavadocMemberLevel.PRIVATE
+    classpath = configurations.compile
+    destinationDir = file("./doc/")
+  }
+
+
+  
