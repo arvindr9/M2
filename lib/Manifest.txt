@@ -1,1 +1,1 @@
-Class-Path: MyUtils.jar
+Class-Path: resources.jar
